@@ -1,0 +1,20 @@
+.navbar-brand{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.nav-link{
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 1.2rem;
+  margin: 0 0.9rem;
+}
+.nav-link:hover{
+  color: rgb(0, 183, 255);
+}
+.bg-body-tertiary {
+  --bs-bg-opacity: 0.9 !important;
+  background-color: rgba(22, 22, 23, .8)!important;
+}
+.navbar{
+  width: 99.2vw;
+}

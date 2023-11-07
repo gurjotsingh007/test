@@ -1,0 +1,9 @@
+.create-btn {
+    border: none;
+    background-color: transparent;
+    color: #1a73e8;
+    font-weight: bold;
+    cursor: pointer;
+    height: 35px;
+    padding: 10px 5px;
+  }

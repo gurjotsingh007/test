@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156, 156, 156);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  scrollbar-color: rgb(156, 156, 156);
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 14px;
+  height: 8px;
+  background-color: rgb(156, 156, 156);
+}
+
+.tags-wrapper::-webkit-scrollbar {
+  overflow: hidden;
+}

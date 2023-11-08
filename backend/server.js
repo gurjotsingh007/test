@@ -1,41 +1,26 @@
-const express = require('express');
-const app = require('./app');
-const dotenv = require('dotenv');
-const connectDatabase = require('./config/database');
-const path = require('path');
-
-dotenv.config({ path: 'backend/config/config.env' });
+const app = require("./app");
+const dotenv = require("dotenv");
+const connectDatabase = require("./config/database");
 
 async function startServer() {
   try {
+    dotenv.config({ path: "backend/config/config.env" });
     await connectDatabase();
 
-    const __dirname = path.resolve();
+    const port = process.env.PORT || 3000;
 
-    if (process.env.NODE_ENV === 'production') {
-      app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-
-      app.get('*', (req, res) =>
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')
-      ));
-    } else {
-      app.get('/', (req, res) => {
-        res.send('API is running....');
-      });
-
-      const server = app.listen(process.env.PORT, process.env.HOST, () => {
-        console.log(`Server is running on port ${process.env.PORT}`);
-      });
-    }
+    const server = app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
 
     // Handling unhandled exceptions
-    process.on('uncaughtException', (err) => {
+    process.on("uncaughtException", (err) => {
       console.error(`Uncaught Exception: ${err.message}`);
       shutdown(server);
     });
 
     // Handling unhandled promise rejections
-    process.on('unhandledRejection', (err) => {
+    process.on("unhandledRejection", (err) => {
       console.error(`Unhandled Promise Rejection: ${err.message}`);
       shutdown(server);
     });
